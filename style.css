@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --primary: #003399;
+}
+
+/* Fontes e botões */
+
+.btn-blue {
+    background-color: var(--primary);
+    transition: 0.7s;
+    color: white;
+    box-shadow: 1px 1px 3px #435780;
+}
+
+.btn-blue:hover{
+    box-shadow: 1px 1px 5px black;
+    transition: 0.7s;
+    background-color: #272727;
+    color: rgb(230, 230, 230);
+}
+
+.fa-instagram,
+.fa-facebook {
+    color: var(--primary);
+}
+
+.text-1x {
+    font-size: 12px;
+}
+
+.text-2x {
+    font-size: 15px;
+}
+
+.text-3x {
+    font-size: 17px;
+
+}
+
+/* Grid principal*/
+
+.jumbotron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+/* Formulário */
+
+.card-form {
+    width: 400px;
+    margin: 50px;
+    padding: 20px;
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.row-socialmedia {
+    text-align: center;
+    align-items: center;
+    align-self: center;
+}
+
+.navbar {
+    background-color: var(--primary) !important;
+}
+
+/* Cards e colunas de assinatura */
+
+.card-assinatura {
+    width: 600px;
+    margin: 50px;
+    padding: 20px;
+    background-color: #e1e3e9;
+    color: var(--primary);
+
+}
+
+.col-assinatura-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.col-assinatura-item-align-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+
+.col-assinatura-item::after,
+.col-assinatura-item-align-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    border-right: 2px solid var(--primary);
+}
+
+.col-assinatura-item:last-child::after {
+    display: none;
+}
+
+/* Informações de contato */
+.contact-info {
+    display: flex;
+    margin-bottom: 3px;
+}
+
+.contact-icon {
+    margin-right: 10px;
+    /* Adicione o espaço entre o ícone e o texto */
+    vertical-align: middle !important;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    vertical-align: middle !important;
+}
+
+
+
+.code-snippet {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+  }

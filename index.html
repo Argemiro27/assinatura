@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.3.1-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+    <title>Gerador de Assinatura - DIGISUL</title>
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0">
+        <nav class="navbar m-0 p-2">
+            <a class="navbar-brand ms-4" href="#"><img src="./img/logo.png" height="50"></a>
+        </nav>
+        <div class="jumbotron">
+            <div class="row p-0 m-0">
+                <div class="col-sm">
+                    <div class="card card-form">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label" for="nome">Nome:</label>
+                                <input type="text" id="nome" class="form-control" placeholder="Informe seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email:</label>
+                                <input type="email" id="email" class="form-control" placeholder="Informe seu email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="funcao">Função:</label>
+                                <input type="text" id="funcao" class="form-control" placeholder="Informe sua função:">
+                            </div>
+                            <div class="text-right"> <!-- Adicionando classe para alinhar à direita -->
+                                <div class="btn btn-blue" id="gerar-assinatura">
+                                    <i class="fa fa-pencil"></i> Gerar Assinatura
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="card card-assinatura" style="background-color: #e1e3e9;">
+                        <div class="row">
+                            <div class="col-sm col-assinatura-item">
+                                <img src='./img/logoazul.png' height="auto" width="auto" style="max-width: 70%;">
+                            </div>
+                            <div class="col-sm col-assinatura-item-align-left col-funcionario">
+                                <p class="text-3x mb-1 fw-bold" id="nome-output"></p>
+                                <p class="text-1x font-weight-bold fw-bold" id="funcao-output"></p>
+                                <div class="contact-info d-flex align-items-center">
+                                    <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                                    <p class="text-2x contact-item contact-text mb-0">
+                                        <a target="_blank" href="https://api.whatsapp.com/send?phone=55351234922">(35)
+                                            3212-4922</a>
+                                    </p>
+                                </div>
+                                <div class="contact-info d-flex align-items-center">
+                                    <div class="contact-icon"><i class="fa fa-envelope fa-1x"></i></div>
+                                    <p class="text-1x contact-item contact-text mb-0" id="email-output"></p>
+                                </div>
+                                <div class="contact-info d-flex align-items-center">
+                                    <div class="contact-icon"><i class="fa fa-map-marker fa-1x"></i></div>
+                                    <p class="text-1x contact-item contact-text mb-0">
+                                        <a target="_blank"
+                                            href="https://www.google.com/maps/place/R.+Gabriela+Rezende+Paiva,+129+-+Santa+Luiza,+Varginha+-+MG,+37026-650/data=!4m2!3m1!1s0x94ca92a235b11a8f:0x3333360dc4de2ef9?sa=X&ved=2ahUKEwjngYfv7OOAAxXQupUCHRjxBI4Q8gF6BAgQEAA&ved=2ahUKEwjngYfv7OOAAxXQupUCHRjxBI4Q8gF6BAgTEAI">
+                                            R. Gabriela Rezende Paiva, 129 - Santa Luiza, Varginha - MG, 37026-650
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm col-assinatura-item">
+                                <div class="row row-socialmedia">
+
+                                    <div class="col-sm">
+                                        <a target="_blank" href="https://instagram.com">
+                                            <i class="fab fa-instagram fa-2x "></i>
+                                        </a>
+                                        <a target="_blank"
+                                            href="https://www.facebook.com/profile.php?id=100063954255897">
+                                            <i class="fab fa-facebook fa-2x"></i>
+                                        </a>
+                                        <a target="_blank"
+                                            href="https://www.linkedin.com/company/digisul-inform-tica-ltda/?originalSubdomain=br">
+                                            <i class="fab fa-linkedin fa-2x"></i>
+                                        </a>
+                                        <div class="row">
+                                            <div class="col-sm mb-3">
+                                                Digisul LTDA
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <i class="fa-solid fa-globe"></i>
+                                                <a target="_blank" href="https://digisul.com.br">
+                                                    digisul.com.br
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm">
+                        <button id="generate-html-button" class="btn btn-blue">
+                            <i class="fa fa-code"></i> Gerar imagem
+                        </button>
+                        <div class="code-snippet mt-3" style="height: 200px; width: 100vh; overflow-y: auto;">
+                            <img id="generated-image" style="max-width: 100%;">
+                        </div>
+
+                        <script>
+                            document.getElementById('generate-html-button').addEventListener('click', function () {
+                                const cardAssinatura = document.querySelector('.card-assinatura');
+
+                                html2canvas(cardAssinatura).then(function (canvas) {
+                                    const generatedImage = document.getElementById('generated-image');
+                                    generatedImage.src = canvas.toDataURL(); // Define a imagem gerada como fonte da tag <img>
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+
+                <script>
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
